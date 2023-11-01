@@ -5,7 +5,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
 import '/src/animated_location_controller.dart';
-import '/src/animation/latlng_tween.dart';
+import '/src/animation/latlng_tween.dart' as flutter_map;
 
 
 typedef LocationAnimationUpdate = void Function(BuildContext context, LatLng position);
@@ -49,7 +49,7 @@ class _LocationIndicatorWrapperState extends AnimatedWidgetBaseState<LocationInd
     _positionTween = visitor(
       _positionTween,
       widget.position,
-      (value) => LatLngTween(begin: value)
+      (value) => LatLngTween(begin: value, end: value)
     ) as LatLngTween;
   }
 
